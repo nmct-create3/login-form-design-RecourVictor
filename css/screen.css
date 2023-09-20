@@ -2,6 +2,19 @@
  # SETTINGS
 /*---------------------------------------*/
 
+@font-face {
+  font-family: InterWeb;
+  src: url(../fonts/Inter-Regular.woff2) format('woff2');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: InterSemiBoldWeb;
+  src: url(../fonts/Inter-SemiBold.woff2) format('woff2');
+  font-weight: 800;
+}
+
+
 :root {
   /* CSS variables here */
 }
@@ -38,8 +51,9 @@ img {
 html {
   font-size: 100%;
   line-height: 1.5;
-  font-family: "Helvetica Neue", Helvetica, arial, sans-serif;
-  color: #171b1c;
+  font-family: "InterWeb","Helvetica Neue", Helvetica, arial, sans-serif;
+  color: #20223a;
+  background-color: #F5F6FA;
   scroll-behavior: smooth;
   /* anti aliasing */
   -webkit-font-smoothing: antialiased;
@@ -51,7 +65,7 @@ html {
 */
 
 ::selection {
-  background: #00b2ff;
+  background: #3385FF ;
   color: white;
 }
 
@@ -133,20 +147,24 @@ hr {
 }
 
 a {
-  color: #008fcc;
+  color: #3385FF;
   transition: all 0.1s ease-in-out;
 }
 
 a:visited {
-  color: #008fcc;
+  color: #2E77E6;
 }
 
 a:hover {
-  color: #00b2ff;
+  color: #2E77E6;
 }
 
 a:active {
-  color: #006b99;
+  color: #1B4186;
+}
+
+input, label {
+  display: block;
 }
 
 /*---------------------------------------/*
@@ -289,6 +307,36 @@ a:active {
   align-content: space-between;
 }
 
+/*
+ Object: Button reset
+ ---
+ Small button reset object
+*/
+
+.o-button-reset {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+  background: transparent;
+ 
+ /* inherit font & color from ancestor */
+  color: inherit;
+  font: inherit;
+ 
+ /* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+  line-height: normal;
+ 
+ /* Corrects font smoothing for webkit */
+ -webkit-font-smoothing: inherit;
+ -moz-osx-font-smoothing: inherit;
+ 
+ /* Corrects inability to style clickable `input` types in iOS */
+ -webkit-appearance: none;
+ }
+
+
 /*------------------------------------*\
   #COMPONENTS
 \*------------------------------------*/
@@ -297,6 +345,76 @@ a:active {
     ---
     Component description
 */
+
+.c-logo{
+  height: 1.5rem;
+}
+
+.c-logo__symbol{
+  height: 100%;
+}
+
+.c-logo__path--1{
+  fill: #20223A;
+}
+
+.c-logo__path--2{
+  fill: #3385FF;
+}
+
+.c-logo__path--3{
+  fill: #1B4186;
+}
+
+/* Form */
+.c-form-field--opptions{
+  display: flex;
+  gap: .5rem;
+}
+
+.c-input{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100%;
+  border: 0.5px solid lightgray;
+  border-radius: 3px;
+  font-family: inherit;
+  color: inherit;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  padding: .7rem;
+  outline: none;
+}
+
+.c-input:focus{
+  border: .5px #4F95FF solid;
+  box-shadow: 0 0 0 3px #3385ff54;
+}
+
+
+.c-btn{
+  width: 100%;
+  color: #F5F6FA;
+  background-color: #3385FF;
+  border-radius: 3px;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  padding: .7rem;
+  border: 0.5px solid #3385FF;
+  outline: none;
+}
+
+.c-btn:hover{
+  border: .5px #3385FF solid;
+  box-shadow: 0 0 0 3px #3385ff54;
+}
+
+.c-btn:focus{
+  border: .5px #3385FF solid;
+  box-shadow: 0 0 0 3px #3385ff54;
+}
 
 /*---------------------------------------/*
  # UTILITIES
