@@ -16,7 +16,33 @@
 
 
 :root {
-  /* CSS variables here */
+  --global-color-primary-400: #4F95FF;
+  --global-color-primary-500: #3385FF;
+  --global-color-primary-600: #2E77E6;
+  --global-color-primary-700: #1B4186;
+  --global-color-primary-500-alpha-30: #3385ff54;
+  /* --global-color-primary-500-alpha-75: ; */
+
+  --global-color-neutral-050: #F5F6FA;
+  --global-color-neutral-100: #E2E3E7; 
+  --global-color-neutral-200: #CACCD4;
+  --global-color-neutral-300: #B5B6C0;
+  --global-color-neutral-400: #A0A1AD;
+  --global-color-neutral-500: #8B8C9A;
+  --global-color-neutral-600: #757787;
+  --global-color-neutral-700: #606274;
+  --global-color-neutral-800: #4B4C60;
+  --global-color-neutral-900: #35374D;
+  --global-color-neutral-950: #20223A;
+
+  --global-baseline: .5rem; 
+
+  --global-whitespace: calc(var(--global-baseline) * 3); /* = 24px */
+  --global-whitespace-xs: calc(var(--global-baseline) / 2); /* = 4px */
+  --global-whitespace-sm: var(--global-baseline); /* = 8px */
+  --global-whitespace-md: calc(var(--global-baseline) * 2); /* = 16px */
+  --global-whitespace-lg: calc(var(--global-baseline) * 4); /* = 32px */   
+  --global-whitespace-xl: calc(var(--global-whitespace-md) * 3); /* = 48px */    
 }
 
 /*---------------------------------------/*
@@ -52,12 +78,14 @@ html {
   font-size: 100%;
   line-height: 1.5;
   font-family: "InterWeb","Helvetica Neue", Helvetica, arial, sans-serif;
-  color: #20223a;
-  background-color: #F5F6FA;
+  color: var(--global-color-neutral-95);
+  background-color: var(--global-color-neutral-100);
   scroll-behavior: smooth;
   /* anti aliasing */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* accent-color: #2E77E6; */
+  accent-color: var(--global-color-primary-400);
 }
 
 /*
@@ -65,8 +93,9 @@ html {
 */
 
 ::selection {
-  background: #3385FF ;
-  color: white;
+  /* background: #3385FF ; */
+  background: var(--global-color-primary-400);
+  color: var(--global-color-neutral-050);
 }
 
 /*
@@ -147,20 +176,20 @@ hr {
 }
 
 a {
-  color: #3385FF;
+  color: var(--global-color-primary-500);
   transition: all 0.1s ease-in-out;
 }
 
 a:visited {
-  color: #2E77E6;
+  color: var(--global-color-primary-600);
 }
 
 a:hover {
-  color: #2E77E6;
+  color: var(--global-color-primary-600);
 }
 
 a:active {
-  color: #1B4186;
+  color: var(--global-color-primary-600);
 }
 
 input, label {
@@ -178,6 +207,12 @@ input, label {
 .o-row {
   padding: 1.5rem 1.5rem 0;
   display: flow-root;
+}
+
+.o-row--body{
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
 
 /*
@@ -348,6 +383,8 @@ input, label {
 
 .c-logo{
   height: 1.5rem;
+  text-align: center;
+  margin-bottom: var(--global-whitespace-xl);
 }
 
 .c-logo__symbol{
@@ -355,15 +392,18 @@ input, label {
 }
 
 .c-logo__path--1{
-  fill: #20223A;
+  /* fill: #20223A; */
+  fill: var(--global-color-neutral-950);
 }
 
 .c-logo__path--2{
-  fill: #3385FF;
+  /* fill: #3385FF; */
+  fill: var(--global-color-primary-500);
 }
 
 .c-logo__path--3{
-  fill: #1B4186;
+  /* fill: #1B4186; */
+  fill: var(--global-color-primary-700);
 }
 
 /* Form */
@@ -377,43 +417,107 @@ input, label {
   -moz-appearance: none;
   appearance: none;
   width: 100%;
-  border: 0.5px solid lightgray;
+  /* background-color: #F5F6FA; */
+  background-color: var(--global-color-neutral-050);
+  /* border: 0.5px solid #E2E3E7; */
+  border: 0.5px solid var(--global-color-neutral-100);
   border-radius: 3px;
   font-family: inherit;
   color: inherit;
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: var(--global-whitespace-md);
+  line-height: var(--global-whitespace);
   padding: .7rem;
   outline: none;
 }
 
 .c-input:focus{
-  border: .5px #4F95FF solid;
-  box-shadow: 0 0 0 3px #3385ff54;
+  border: .5px var(--global-color-primary-500) solid;
+  /* box-shadow: 0 0 0 3px #3385ff54; */
+  box-shadow: 0 0 0 3px var(--global-color-primary-500-alpha-30);
 }
 
 
 .c-btn{
   width: 100%;
-  color: #F5F6FA;
-  background-color: #3385FF;
+  /* color: #F5F6FA; */
+  color: var(--global-color-neutral-050);
+  background-color: var(--global-color-primary-400);
   border-radius: 3px;
   font-family: inherit;
-  font-size: 1rem;
-  line-height: 1.5rem;
-  padding: .7rem;
-  border: 0.5px solid #3385FF;
+  font-size: var(--global-whitespace-md);
+  line-height: var(--global-whitespace);
+  padding: var(--global-baseline);
+  border: 0.5px solid var(--global-color-primary-400);
   outline: none;
 }
 
 .c-btn:hover{
-  border: .5px #3385FF solid;
-  box-shadow: 0 0 0 3px #3385ff54;
+  border: .5px var(--global-color-primary-400) solid;
+  /* box-shadow: 0 0 0 3px #3385ff54; */
+  box-shadow: 0 0 0 3px var(--global-color-primary-500-alpha-30);
 }
 
 .c-btn:focus{
-  border: .5px #3385FF solid;
-  box-shadow: 0 0 0 3px #3385ff54;
+  border: .5px var(--global-color-primary-400) solid;
+  /* box-shadow: 0 0 0 3px #3385ff54; */
+  box-shadow: 0 0 0 3px var(--global-color-primary-500-alpha-30);
+}
+
+.c-btn--forgot{
+  margin-bottom: var(--global-whitespace-xl);
+  margin-top: var(--global-whitespace-md);
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: var(--global-whitespace-md);
+}
+
+/* Cards */
+.c-card{
+  /* background-color: #F5F6FA; */
+  background-color: var(--global-color-neutral-050);
+  /* border: 0.5px solid #E2E3E7; */
+  border: 0.5px solid var(--global-color-neutral-100);
+  /* box-shadow: 0 2px 4px #CACCD4; */
+  box-shadow: 0 2px 4px var(--global-color-neutral-200);
+}
+
+.c-card__body {
+  padding: 0 var(--global-whitespace-md);
+  @media (width >= 64em){
+    padding: 0 var(--global-whitespace-xl);
+  }
+}
+
+.c-card__title{
+  padding-top: var(--global-whitespace-xl);
+  font-size: 1.125rem;
+  font-family: "InterSemiBoldWeb","Helvetica Neue", Helvetica, arial, sans-serif;;
+  text-align: center;
+}
+
+.c-card__footer{
+  text-align: center;
+  /* border-top: 0.5px solid #CACCD4; */
+  border-top: 0.5px solid var(--global-color-neutral-200);
+  padding: var(--global-whitespace);
+  padding-bottom: calc(var(--global-whitespace) - 24px);
+  font-size: .75rem;
+  color: #6062749e;
+}
+
+/* labels */
+.c-label{
+  font-size: .875rem;
+  line-height: var(--global-whitespace-md);
+  margin-bottom: var(--global-baseline);
+  /* color: #606274; */
+  color: var(--global-color-neutral-700);
+}
+
+.c-label--option{
+  margin-bottom: 0;
+  margin-left: var(--global-baseline);
 }
 
 /*---------------------------------------/*
@@ -426,6 +530,10 @@ input, label {
 */
 .u-max-width-s {
   max-width: 37.5rem;
+}
+
+.u-max-width-xs{
+  max-width: 27rem;
 }
 
 .u-max-width-m {
